@@ -10,14 +10,14 @@
 
 int main(void)
 {
-    key_t k = ftok(".", 'b'); // Create key
-    int shm_id = shmget(k, sizeof(int), IPC_CREAT|0X1FF); // Create shared memory segment
+    key_t key = ftok(".", 'b'); // Create key
+    int shm_id = shmget(key, sizeof(int), IPC_CREAT|0X1FF); // Create shared memory segment
     if (shm_id < 0)
     {
         perror("shmget fail\n");
     }
     
-    _Atomic int shdint = 1;
+    _Atomic int shdint = 0;
 	int* shmaddr = shmat(shm_id, NULL, 0); // Attach processes to shm_id
     *shmaddr = shdint;
     printf("value before fork: %d\n", *shmaddr);  
@@ -25,16 +25,14 @@ int main(void)
 	clock_t initial_time, final_time, start_time, end_time;
 	initial_time = clock();
 
-	int lock = 0; // Initially lock=FALSE
-
-	int n = 10, t = 1000000; 
+	int n = 10, c = 10000; 
 	int i, j, child_status;
 	pid_t pid[n];
 	for(i=0; i<n; i++)
 	{
 		if((pid[i] = fork()) == 0){
 			start_time = clock();
-			for(j=0; j<t; j++) (*shmaddr) += 1;
+			for(j=0; j<c; j++) (*shmaddr) += 1;
 			end_time = clock();
 			printf("value in the child %d: %d (runtime: %lfms)\n", getpid(), *shmaddr, (double)(end_time - start_time));	
 			exit(100+i);
