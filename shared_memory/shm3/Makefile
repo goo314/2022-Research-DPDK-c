@@ -1,7 +1,7 @@
 # Makefile
 TARGET=run
 CC=gcc
-$(TARGET): shm5.c
+$(TARGET): shm2.c
 #	$(CC) -o $@ $^ -lpthread
 	$(CC) -o $@ $^
 clean:
