@@ -7,7 +7,7 @@ taskset -c $c ./shmcr &
 i=1
 while [ $i -lt $N ]
 do
-	taskset -c $i ./shmuse &
+	taskset -c $c ./shmuse &
 	i=$((i+1))
 done
 
