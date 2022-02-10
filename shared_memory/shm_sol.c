@@ -32,7 +32,7 @@ int main (void) {
 	*mem = 0;
 
 	times = clock ();
-	for (j = 0; j < 1000000; j++) if(*mem == 100);	//__atomic_fetch_add (mem, 1, __ATOMIC_SEQ_CST);
+	for (j = 0; j < 1000000; j++) /*if(*mem == 100);*/	__atomic_fetch_add (mem, 1, __ATOMIC_SEQ_CST);
 	times = clock () - times;
 
 	printf ("PID %d: %lf\t", getpid(), (double)(times)/CLOCKS_PER_SEC);
