@@ -11,7 +11,7 @@
 int main (void) {
 	int shm_id;
 	int key = 185749;
-	int *mem;
+	/*volatile*/ int *mem;
 	void *mem_seg = NULL;
 	int j;
 	clock_t times;
@@ -32,7 +32,7 @@ int main (void) {
 	*mem = 0;
 
 	times = clock ();
-	for (j = 0; j < 1000000; j++) /*if(*mem == 100);*/	__atomic_fetch_add (mem, 1, __ATOMIC_SEQ_CST);
+	for (j = 0; j < 1000000; j++) if(*mem == 100);	//__atomic_fetch_add (mem, 1, __ATOMIC_SEQ_CST);
 	times = clock () - times;
 
 	printf ("PID %d: %lf\t", getpid(), (double)(times)/CLOCKS_PER_SEC);
