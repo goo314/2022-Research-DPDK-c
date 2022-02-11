@@ -10,7 +10,7 @@
 
 int main (void) {
 	int shm_id;
-	int key = 185749;
+	/*volatile*/ int key = 185749;
 	/*volatile*/ int *mem;
 	void *mem_seg = NULL;
 	int j;
@@ -32,12 +32,19 @@ int main (void) {
 	*mem = 0;
 
 	times = clock ();
+	if(fork()==0) execl("/usr/bin/free", "free", "-w", 0);
+	wait(NULL);
+	
 	for (j = 0; j < 1000000; j++) if(*mem == 100);	//__atomic_fetch_add (mem, 1, __ATOMIC_SEQ_CST);
+	
+	if(fork()==0) execl("/usr/bin/free", "free", "-w", 0);
+    wait(NULL);
+
 	times = clock () - times;
 
-	printf ("PID %d: %lf\t", getpid(), (double)(times)/CLOCKS_PER_SEC);
+	printf ("\nPID %d: %lf\n\n", getpid(), (double)(times)/CLOCKS_PER_SEC);
 	// printf ("Final mem : %d\n", (*mem));
-	
+		
 	shmdt (mem_seg);
 	return 0;
 }

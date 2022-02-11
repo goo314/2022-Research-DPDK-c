@@ -10,5 +10,3 @@ do
 	taskset -c $c ./shmuse &
 	i=$((i+1))
 done
-
-echo "\n"

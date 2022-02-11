@@ -1,0 +1,45 @@
+              total        used        free      shared     buffers       cache   available
+Mem:       32559332      275056    31990956        9756        2480      290840    31779772
+Swap:        999420           0      999420
+              total        used        free      shared     buffers       cache   available
+Mem:       32559332      275056    31990956        9756        2480      290840    31779772
+Swap:        999420           0      999420
+              total        used        free      shared     buffers       cache   available
+Mem:       32559332      275056    31990956        9756        2480      290840    31779772
+Swap:        999420           0      999420
+              total        used        free      shared     buffers       cache   available
+Mem:       32559332      275056    31990956        9756        2480      290840    31779772
+Swap:        999420           0      999420
+              total        used        free      shared     buffers       cache   available
+Mem:       32559332      275056    31990956        9756        2480      290840    31779772
+Swap:        999420           0      999420
+              total        used        free      shared     buffers       cache   available
+Mem:       32559332      275040    31990428        9756        2832      291032    31779608
+Swap:        999420           0      999420
+              total        used        free      shared     buffers       cache   available
+Mem:       32559332      275040    31990428        9756        2832      291032    31779608
+Swap:        999420           0      999420
+              total        used        free      shared     buffers       cache   available
+Mem:       32559332      275040    31990428        9756        2832      291032    31779608
+Swap:        999420           0      999420
+
+PID 6393: 0.004493
+
+
+PID 6392: 0.004525
+
+              total        used        free      shared     buffers       cache   available
+Mem:       32559332      275040    31990428        9756        2832      291032    31779608
+Swap:        999420           0      999420
+              total        used        free      shared     buffers       cache   available
+Mem:       32559332      275040    31990428        9756        2832      291032    31779608
+Swap:        999420           0      999420
+
+PID 6395: 0.004588
+
+
+PID 6394: 0.005004
+
+
+PID 6391: 0.004920
+

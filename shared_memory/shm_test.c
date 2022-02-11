@@ -11,8 +11,8 @@
 int main (int argc, char* args[]) {
 	int NP = atoi(args[1]);
 	int shm_id;
-	int key = 185749;
-	int *mem;
+	volatile int key = 185749;
+	volatile int *mem;
 	void *mem_seg = NULL;
 	int i, j, n;
 	int pids[NP];
